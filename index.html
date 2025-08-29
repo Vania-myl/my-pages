@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+    <lscard>默认</lscard>
+    <lsbutton type="primary">主要按钮</lsbutton>
+    <lsswitch v-model="message"></lswitch>
+    <lsimage src="https://pixnio.com/free-images/2025/02/19/2025-02-19-08-42-20-1152x768.jpg" alt="图片" width="200px" height="200px"></lsimage>  
+    </div>
+</body>
+<style>
+    
+</style>
+ <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="node_modules/ls-components-myl/ls-ui.umd.js"></script>
+<link rel="stylesheet" href="./node_modules/ls-components-myl/ls-ui.css">
+<script >
+    const app = Vue.createApp({
+  data() {
+    return { message: 'Hello Vue!' }
+  },
+  
+});
+// 注册组件、挂载应用等操作
+// 引入组件库后，获取组件（假设组件库暴露的全局对象是 LsComponents）
+const { install,lsCard,lsButton, lsSwitch,lsMessage,lsImage} = window['ls-ui']; 
+
+// 注册组件（第一个参数是组件名，第二个是组件对象）
+app.use(window['ls-ui']);
+app.component('lscard', lsCard);
+app.component('lsbutton', lsButton);
+app.component('lsswitch', lsSwitch);
+app.component('lsmessage', lsMessage);
+app.component('lsimage', lsImage);
+app.mount('#app');
+
+</script>
+</html>
