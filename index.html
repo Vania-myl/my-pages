@@ -7,14 +7,554 @@
 </head>
 <body>
     <div id="app">
-    <lscard>默认</lscard>
-    <lsbutton type="primary">主要按钮</lsbutton>
-    <lsswitch v-model="message"></lswitch>
-    <lsimage src="https://pixnio.com/free-images/2025/02/19/2025-02-19-08-42-20-1152x768.jpg" alt="图片" width="200px" height="200px"></lsimage>  
+      <h1>组件库介绍</h1>
+      <div class="use">
+        <ul>
+          <li>vue3+TypeScript</li>
+          <li>下载：npm install ls-components-myl</li>
+          <li>全局导入：import {install} from 'ls-components-myl'</li>
+          <li>按需导入：import {组件名} from 'ls-components-myl'</li>
+        </ul>
+      </div>
+
+      <h2>1、lsCard 卡片</h2>
+      <h3>1.1  效果展示</h3>
+    <lscard>这是默认卡片</lscard>
+    <lscard title="标题" subtitle="8.30" size="medium">
+      <img src="./src/img/图片1.jpg" alt="小乔大王" width="280px">
+     <br> body文字部分
+      <template #footer>底部卡槽</template>
+    </lscard>
+    <h3>1.2 用法介绍</h3>
+    <table class="table">
+      <tr>
+        <th>属性</th>
+        <th>取值</th>
+        <th>默认值</th>
+      </tr>
+      <tr>
+        <td>title</td>
+        <td>String</td>
+        <td> ' '</td>
+      </tr>
+      <tr>
+        <td>subtitle</td>
+        <td>String</td>
+        <td> ' '</td>
+      </tr><tr>
+        <td>border</td>
+        <td>Boolean</td>
+        <td> true</td>
+      </tr><tr>
+        <td>shadow</td>
+        <td>Boolean</td>
+        <td> true</td>
+      </tr><tr>
+        <td>radius</td>
+        <td>Number</td>
+        <td> 8</td>
+      </tr><tr>
+        <td>size</td>
+        <td>String</td>
+        <td> small</td>
+      </tr>
+    </table>
+<!-- <p>使用 <code></code> 可以在控制台输出信息。</p> -->
+
+<!-- 多行代码 -->
+<pre><code class="code">
+&lt;lsCard 
+title="" subtltle="" size="small" 
+:radius="" :border="true" &gt;
+&lt;img src="" alt="" width="" &gt;
+卡片文本
+&lt;template #footer> 底部文本 &lt;/template&gt;
+&lt;/lsCard&gt;
+</code></pre>
+    <h2>2、lsButton 按钮</h2>
+   <h3>2.1 效果展示</h3>
+<lsbutton>默认按钮</lsbutton>
+<lsbutton type="primary">主要按钮</lsbutton>
+<lsbutton type="success" >成功按钮</lsbutton>
+<lsbutton type="danger" loading>加载中</lsbutton>
+<lsbutton disabled>禁用按钮</lsbutton>
+<lsbutton>
+<template #icon><img src="/src/img/favicon.ico"></template>
+带图标按钮
+</lsbutton>
+
+<h3>2.2 用法介绍</h3>
+<table class="table">
+<tr>
+<th>属性</th>
+<th>取值</th>
+<th>默认值</th>
+</tr>
+<tr>
+<td>type</td>
+<td>String（default/primary/success/danger/warning/info/dark/light）</td>
+<td>'default'</td>
+</tr>
+<tr>
+<td>size</td>
+<td>String（small/medium/large）</td>
+<td>'medium'</td>
+</tr>
+<tr>
+<td>disabled</td>
+<td>Boolean</td>
+<td>false</td>
+</tr>
+<tr>
+<td>loading</td>
+<td>Boolean</td>
+<td>false</td>
+</tr>
+<tr>
+<td>nativeType</td>
+<td>String（button/submit/reset）</td>
+<td>'button'</td>
+</tr>
+</table>
+
+<pre><code class="code">
+&lt;lsbutton
+type="primary" size="medium"
+:disabled="false" :loading="false"
+nativeType="button"&gt;
+&lt;template #icon&gt;&lt;i class="fa fa-search"&gt;&lt;/i&gt;&lt;/template&gt;
+按钮文本
+&lt;/lsbutton&gt;
+</code></pre>
+   <h2>3、lsSwitch 开关</h2>
+<h3>3.1 效果展示</h3>
+<lsswitch v-model:checked="switch1"></lsswitch>
+<br>
+<lsswitch v-model:checked="switch2"></lsswitch>
+<br>
+<lsswitch disabled></lsswitch>
+<br>
+<lsswitch size="large"  active-color="blue" inactive-color="red" v-model:checked="switch3"></lsswitch>
+<br>
+<lsswitch :show-text="false" v-model:checked="switch4"></lsswitch>
+<br>
+<lsswitch active-text="开" inactive-text="关" v-model:checked="switch5"></lsswitch>
+
+<h3>3.2 用法介绍</h3>
+<table class="table">
+<tr>
+<th>属性</th>
+<th>取值</th>
+<th>默认值</th>
+</tr>
+<tr>
+<td>checked</td>
+<td>Boolean</td>
+<td>true</td>
+</tr>
+<tr>
+<td>disabled</td>
+<td>Boolean</td>
+<td>false</td>
+</tr>
+<tr>
+<td>showText</td>
+<td>Boolean</td>
+<td>true</td>
+</tr>
+<tr>
+<td>activeText</td>
+<td>String</td>
+<td>'启用'</td>
+</tr>
+<tr>
+<td>inactiveText</td>
+<td>String</td>
+<td>'禁用'</td>
+</tr>
+<tr>
+<td>activeColor</td>
+<td>String（颜色值）</td>
+<td>'green'</td>
+</tr>
+<tr>
+<td>inactiveColor</td>
+<td>String（颜色值）</td>
+<td>'#ccc'</td>
+</tr>
+<tr>
+<td>size</td>
+<td>String（small/medium/large）</td>
+<td>'medium'</td>
+</tr>
+</table>
+
+<pre><code class="code">
+&lt;lsswitch
+:checked="true"
+:disabled="false"
+:show-text="true"
+active-text="文字"
+inactive-text="文字"
+active-color="颜色值"
+inactive-color="颜色值"
+size="medium"
+v-model:checked="switchValue"
+&gt;&lt;/lsswitch&gt;
+</code></pre>
+<p>Vue 组件的属性通常使用 kebab-case（短横线分隔）而不是 camelCase（驼峰式）。在模板中应该使用active-color而不是activeColor，active-text而不是activeText。</p>
+<h3>3.3 事件说明</h3>
+<table class="table">
+<tr>
+<th>事件名</th>
+<th>说明</th>
+<th>参数</th>
+</tr>
+<tr>
+<td>update:checked</td>
+<td>开关状态变化时触发，支持v-model双向绑定</td>
+<td>新的状态值（Boolean）</td>
+</tr>
+</table>
+
+   
+     <h2>4、lsMessage 消息提示</h2>
+<h3>4.1 效果展示</h3>
+<lsbutton @click="showMessage1=true" :disabled="showMessage1">提示信息</lsbutton>
+<lsmessage v-if="showMessage1" type="info" message="这是一条信息提示" duration="2000"  @close="showMessage1=false"></lsMessage>
+  <br>
+  <lsbutton type="primary" @click="showMessage2=true">提交</lsbutton>
+ <lsMessage v-if="showMessage2" type="error" message="操作失败，请重试" duration="0" show-close @close="showMessage2=false"></lsMessage>
+ <lsbutton type="info" @click="showMessage3=true">取消</lsbutton>
+<lsMessage  v-if="showMessage3"  type="warning" message="请注意，这是警告信息" show-close @close="showMessage3=false"></lsMessage>
+<lsbutton @click="showMessage4=true">成功</lsbutton>
+<lsMessage v-if="showMessage4" type="success" message="成功" :show-close="true" duration="2000" @close="showMessage4=false"></lsMessage> 
+
+<h3>4.2 用法介绍</h3>
+<table class="table">
+<tr>
+<th>属性</th>
+<th>取值</th>
+<th>默认值</th>
+</tr>
+<tr>
+<td>type</td>
+<td>String（info/success/warning/error）</td>
+<td>'info'</td>
+</tr>
+<tr>
+<td>message</td>
+<td>String（消息提示内容）</td>
+<td>''</td>
+</tr>
+<tr>
+<td>showClose</td>
+<td>Boolean（是否显示关闭按钮）</td>
+<td>false</td>
+</tr>
+<tr>
+<td>duration</td>
+<td>Number（自动关闭时长 ,0 表示不自动关闭）</td>
+<td>2000</td>
+</tr>
+</table>
+
+<pre><code class="code">
+&lt;button @click="showMeaageName=true" &gt;  //配合按钮使用控制消息显示
+&lt;lsMessage
+v-if="showMessageNmae" //点击按钮后显示
+type="success"
+message="数据提交成功"  //消息内容
+:show-close="true"   
+duration="3000"
+@close="showMessageName=false"  //绑定关闭事件
+&gt;&lt;/lsMessage&gt;
+</code></pre>
+
+<h3>4.3 事件说明</h3>
+<table class="table">
+<tr>
+<th>事件名</th>
+<th>说明</th>
+<th>参数</th>
+</tr>
+<tr>
+<td>close</td>
+<td>关闭消息</td>
+<td>无</td>
+</tr>
+</table>
+
+<h3>4.4 交互说明</h3>
+<ul>
+<li>鼠标悬浮在消息上时，自动关闭定时器会暂停，离开后恢复计时</li>
+<li>点击关闭按钮（showClose=true 时显示）可手动关闭消息</li>
+</ul>
+    <h2>5、lsImage 图片组件</h2>
+<h3>5.1 效果展示</h3>
+<lsimage src="./src/img/图片1.jpg" alt="图片1" width="300px"  radius="8px"></lsImage>
+<lsimage src="./src/img/图片2.jpg" alt="图片2" width="400px"  max-zoom="3" min-zoom="0.3" ></lsImage>
+<lsimage src="./src/img/示例图2.jpg" alt="错误图" width="300px" height="300px" ></lsImage>
+
+<h3>5.2 用法介绍</h3>
+<table class="table">
+<tr>
+<th>属性</th>
+<th>取值</th>
+<th>默认值</th>
+</tr>
+<tr>
+<td>src</td>
+<td>String（必填）</td>
+<td>无</td>
+</tr>
+<tr>
+<td>alt</td>
+<td>String</td>
+<td>'图片'</td>
+</tr>
+<tr>
+<td>width</td>
+<td>String</td>
+<td>'auto'</td>
+</tr>
+<tr>
+<td>height</td>
+<td>String</td>
+<td>'auto'</td>
+</tr>
+<tr>
+<td>radius</td>
+<td>String</td>
+<td>0px</td>
+</tr>
+<tr>
+<td>maxZoom</td>
+<td>Number（图片最大放大倍数）</td>
+<td>2</td>
+</tr>
+<tr>
+<td>minZoom</td>
+<td>Number（图片最小缩小倍数）</td>
+<td>0.5</td>
+</tr>
+<tr>
+<td>ratateStep</td>
+<td>Number（图片每次旋转的角度，单位：度）</td>
+<td>90</td>
+</tr>
+</table>
+
+<pre><code class="code">
+&lt;lsImage
+src="./src/img/目标图片.jpg"
+alt="示例图"
+width="500px"
+height="300px"
+radius="12"
+maxZoom="2.5"
+minZoom="0.4"
+ratateStep="30"
+&gt;&lt;/lsImage&gt;
+</code></pre>
+
+<h3>5.3 核心功能说明</h3>
+<table class="table">
+<tr>
+<th>功能</th>
+<th>触发方式</th>
+<th>说明</th>
+</tr>
+<tr>
+<td>加载状态</td>
+<td>图片请求中自动显示</td>
+<td>展示“加载中...”文本，加载完成后自动切换为正常图片</td>
+</tr>
+<tr>
+<td>错误重试</td>
+<td>图片加载失败时点击“加载失败，点击重试”文本</td>
+<td>重新请求图片资源，解决临时网络问题导致的加载失败</td>
+</tr>
+<tr>
+<td>图片缩放</td>
+<td>鼠标滚轮滚动（向上放大、向下缩小）</td>
+<td>缩放范围限制在 minZoom ~ maxZoom 之间，实时显示缩放百分比</td>
+</tr>
+<tr>
+<td>图片旋转</td>
+<td>点击“旋转”按钮</td>
+<td>每次旋转角度为 ratateStep 设定值，支持连续旋转</td>
+</tr>
+<tr>
+<td>重置状态</td>
+<td>点击“重置”按钮</td>
+<td>恢复图片至初始大小（缩放倍数 1）和初始角度（0 度）</td>
+</tr>
+<tr>
+<td>大图预览</td>
+<td>点击“预览”按钮</td>
+<td>在页面中央显示大图，点击“×”关闭预览</td>
+</tr>
+<tr>
+<td>alt提示</td>
+<td>鼠标悬浮在图片上</td>
+<td>显示 alt 属性设置的文本提示，鼠标离开后自动隐藏</td>
+</tr>
+</table>
+
+<h2>6、lsCarousel 轮播组件</h2>
+<h3>6.1 效果展示</h3>
+<lscarousel
+:images="[
+{ src: './src/img/图片2.jpg', alt: '轮播图1', desc: '第一张轮播图描述' },
+{ src: './src/img/图片3.jpg', alt: '轮播图2', desc: '第二张轮播图描述' },
+{ src: './src/img/图片1.jpg', alt: '轮播图3', desc: '第三张轮播图描述' },
+{ src: './src/img/图片4.jpg', alt: '轮播图4', desc: '第四张轮播图描述' },
+]"
+width="400px"
+height="300px"
+border-radius="20px"
+:auto-play="true"
+></lsCarousel>
+<lsCarousel
+:images="[
+{ src: './src/img/图片3.jpg', alt: '单张轮播图' ,desc:'单张图片'},
+]"
+width="500px"
+height="300px"
+:autoPlay="false"
+></lsCarousel>
+
+<h3>6.2 用法介绍</h3>
+<table class="table">
+<tr>
+<th>属性</th>
+<th>取值</th>
+<th>默认值</th>
+</tr>
+<tr>
+<td>images</td>
+<td>Array&lt;CarouselItem&gt;（轮播图片列表必填）<br>
+CarouselItem 结构：<br>
+- src: String（图片路径，必填）<br>
+- alt: String（图片替代文本，可选）<br>
+- desc: String（图片描述文本，可选）
+</td>
+<td>无</td>
+</tr>
+<tr>
+<td>width</td>
+<td>String</td>
+<td>'800px'</td>
+</tr>
+<tr>
+<td>height</td>
+<td>String</td>
+<td>'400px'</td>
+</tr>
+<tr>
+<td>borderRadius</td>
+<td>String</td>
+<td>'8px'</td>
+</tr>
+<tr>
+<td>autoPlay</td>
+<td>Boolean（是否开启自动轮播）</td>
+<td>true</td>
+</tr>
+<tr>
+<td>interval</td>
+<td>Number（自动轮播间隔时间）</td>
+<td>3000</td>
+</tr>
+</table>
+
+<pre><code class="code">
+&lt;lsCarousel
+:images="[
+{
+src: './src/img/1.jpg',
+alt: '1',
+desc: ''
+},
+{
+src: './src/img/2.jpg',
+alt: '2',
+desc: ''
+},
+{
+src: './src/img/3.jpg',
+alt: '3',
+desc: ''
+}
+]"
+width="200px"
+height="500px"
+border-radius="16px"
+:auto-play="true"
+interval="4000"
+&gt;&lt;/lsCarousel&gt;
+</code></pre>
+
+<h3>6.3 核心功能说明</h3>
+<table class="table">
+<tr>
+<th>功能</th>
+<th>触发方式</th>
+<th>说明</th>
+</tr>
+<tr>
+<td>自动轮播</td>
+<td>组件挂载后自动启动（autoPlay=true 时）</td>
+<td>按 interval 设定时间自动切换到下一张，最后一张切换后回到第一张</td>
+</tr>
+<tr>
+<td>暂停自动轮播</td>
+<td>鼠标悬浮在轮播容器上</td>
+<td>悬浮时暂停自动切换，离开后恢复自动轮播</td>
+</tr>
+<tr>
+<td>手动切换上一张</td>
+<td>点击左侧“&lt;”按钮</td>
+<td>当前为第一张时，点击切换到最后一张；仅当图片数量&gt;1时显示按钮</td>
+</tr>
+<tr>
+<td>手动切换下一）</td>
+<td>点击右侧“&gt;”按钮</td>
+<td>当前为最后一张时，点击切换到第一张；仅当图片数量&gt;1时显示按钮</td>
+</tr>
+<tr>
+<td>指定切换</td>
+<td>点击底部指示器小圆点</td>
+<td>点击对应索引的指示器，直接切换到目标轮播图；仅当图片数量&gt;1时显示指示器</td>
+</tr>
+<tr>
+<td>图片描述</td>
+<td>images 数组中配置 desc 属性时自动显示</td>
+<td>在图片底部显示描述文本，无 desc 时不显示</td>
+</tr>
+</table>
+<p>组件库desc忘记设计样式了 没有显示</p>
+
+
     </div>
 </body>
 <style>
-    
+.table{
+  width: 80%;
+  border-collapse: collapse;
+  margin: 20px 10px;
+  font-size: 16px;
+  text-align: left;
+  border-radius: 8px; 
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+.code{
+  font-size:medium;
+  font-family:'yahei';
+  color: #5b5454;
+}
 </style>
  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
 <script src="libs/ls-components-myl/ls-ui.umd.js"></script>
@@ -22,21 +562,29 @@
 <script >
     const app = Vue.createApp({
   data() {
-    return { message: 'Hello Vue!' }
-  },
+    return { message: 'Hello Vue!',
+      switch1:true,
+      switch2:false,
+      switch3:true,
+      switch4:true,
+      switch5:true,
+      showMessage1:false,
+      showMessage2:false,
+      showMessage3:false,
+      showMessage4:false,
+
+     }
+ },
   
 });
-// 注册组件、挂载应用等操作
-// 引入组件库后，获取组件（假设组件库暴露的全局对象是 LsComponents）
-const { install,lsCard,lsButton, lsSwitch,lsMessage,lsImage} = window['ls-ui']; 
-
-// 注册组件（第一个参数是组件名，第二个是组件对象）
+const { install,lsCard,lsButton, lsSwitch,lsMessage,lsImage,lsCarousel} = window['ls-ui']; 
 app.use(window['ls-ui']);
 app.component('lscard', lsCard);
 app.component('lsbutton', lsButton);
 app.component('lsswitch', lsSwitch);
 app.component('lsmessage', lsMessage);
 app.component('lsimage', lsImage);
+app.component('lscarousel',lsCarousel)
 app.mount('#app');
 
 </script>
